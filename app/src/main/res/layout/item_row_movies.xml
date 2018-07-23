@@ -1,0 +1,52 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="20dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:id="@+id/img_movie"
+        android:src="@drawable/ic_image_black_24dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/img_movie"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Judul Film"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/tv_judul_film"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Film Disini"
+            android:textSize="16dp"
+            android:maxLines="1"
+            android:id="@+id/tv_deskripsi_film"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Film"
+            android:textSize="16dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/tv_tanggal_film"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

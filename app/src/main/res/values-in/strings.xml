@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Movie Catalogue UI UX</string>
+    <string name="enter_film_name">Cari Film</string>
+    <string name="movie_name">Nama Film</string>
+    <string name="search">Cari</string>
+    <string name="search_">Cari</string>
+    <string name="title">Judul</string>
+    <string name="description">Deskripsi</string>
+    <string name="date">Tanggal Rilis</string>
+    <string name="now_playing">Main Sekarang</string>
+    <string name="upcoming">Mendatang</string>
+    <string name="movie">Film</string>
+    <string name="category">Kategori</string>
+    <string name="home">Beranda</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite">Favorite</string>
+    <string name="available">sudah ada dalam database</string>
+    <string name="share">Bagikan</string>
+    <string name="toast">Berhasil dimasukkan ke favorite!</string>
+    <string name="movie_title">Judul Film</string>
+    <string name="movie_overview">Rating</string>
+    <string name="release_date">Tanggal Rilis</string>
+    <string name="fragment_upcoming">Fragment Upcoming</string>
+    <string name="long_overview">Rating</string>
+    <string name="title_overview">Rating Keseluruhan</string>
+    <string name="title_date_of_release">Tanggal Rilis :</string>
+    <string name="content_ratings">1000 Ratings (7.5/10)</string>
+    <string name="title_rating">Rating</string>
+    <string name="title_judul">Juduln</string>
+    <string name="content_tanggal">Tanggal</string>
+    <string name="click_me_to_see_the_awesomeness">Click me to see the Awesomeness!</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="Favorit">Favorite</string>
+    <string name="first_run">first_run</string>
+    <string name="loading">Mohon Tunggu Sebentar...</string>
+    <string name="changeLanguage">Ganti Bahasa</string>
+    <string name="delete">Hapus</string>
+    <string name="add_to_fav">Tambahkan ke Favorit</string>
+
+</resources>
