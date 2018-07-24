@@ -14,14 +14,15 @@ import static com.jesslyntjiang.android.cataloguemovieuiux.Database.DatabaseCont
 import static com.jesslyntjiang.android.cataloguemovieuiux.Database.DatabaseContract.CONTENT_URI;
 
 public class MovieProvider extends ContentProvider {
+
     private static final int MOVIE = 1;
-    private static final int ID = 2;
+    private static final int MOVIE_ID = 2;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static{
         sUriMatcher.addURI(AUTHORITY, DatabaseContract.FAVORITE_MOVIE, MOVIE);
-        sUriMatcher.addURI(AUTHORITY, DatabaseContract.FAVORITE_MOVIE+"/#", ID);
+        sUriMatcher.addURI(AUTHORITY, DatabaseContract.FAVORITE_MOVIE + "/#", MOVIE_ID);
     }
 
     private MovieHelper movieHelper;
@@ -33,14 +34,15 @@ public class MovieProvider extends ContentProvider {
         return true;
     }
 
+    @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, String[] strings, String s, String[] strings1, String s1) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
         Cursor cursor;
-        switch (sUriMatcher.match(uri)){
+        switch (sUriMatcher.match(uri)) {
             case MOVIE:
                 cursor = movieHelper.queryProvider();
                 break;
-            case ID:
+            case MOVIE_ID:
                 cursor = movieHelper.queryByIdProvider(uri.getLastPathSegment());
                 break;
             default:
@@ -48,11 +50,10 @@ public class MovieProvider extends ContentProvider {
                 break;
         }
 
-        if (cursor!=null){
+        if (cursor != null) {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
         }
-        return cursor;
-    }
+        return cursor;    }
 
     @Nullable
     @Override
@@ -62,56 +63,55 @@ public class MovieProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Uri insert(@NonNull Uri uri, ContentValues values) {
-        long added;
-
-        switch (sUriMatcher.match(uri)){
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+       long added;
+        switch (sUriMatcher.match(uri)) {
             case MOVIE:
-                added = movieHelper.insertProvider(values);
+                added = movieHelper.insertProvider(contentValues);
                 break;
             default:
                 added = 0;
                 break;
         }
 
-        if (added>0){
+        if (added > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
-        return Uri.parse(CONTENT_URI+"/"+added);
-    }
+        return uri.parse(CONTENT_URI + "/" + added);    }
 
     @Override
-    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
         int deleted;
-        switch (sUriMatcher.match(uri)){
-            case ID:
+
+        switch (sUriMatcher.match(uri)) {
+            case MOVIE_ID:
                 deleted = movieHelper.deleteProvider(uri.getLastPathSegment());
                 break;
             default:
                 deleted = 0;
                 break;
         }
-        if (deleted>0){
+
+        if (deleted > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
-        return deleted;
-    }
+        return deleted;    }
 
     @Override
-    public int update(@NonNull Uri uri, ContentValues values, String s, String[] strings) {
-        int updated;
-        switch (sUriMatcher.match(uri)){
-            case ID:
-                updated = movieHelper.updateProvider(uri.getLastPathSegment(), values);
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+        int update;
+
+        switch (sUriMatcher.match(uri)) {
+            case MOVIE_ID:
+                update = movieHelper.updateProvider(uri.getLastPathSegment(), contentValues);
                 break;
             default:
-                updated = 0;
+                update = 0;
                 break;
         }
-
-        if (updated>0){
+        if (update > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }
-        return updated;
+        return update;
     }
 }
