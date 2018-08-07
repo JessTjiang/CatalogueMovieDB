@@ -1,5 +1,6 @@
 package com.jesslyntjiang.android.cataloguemovieuiux;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -14,10 +15,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.bumptech.glide.Glide;
+import com.jesslyntjiang.android.cataloguemovieuiux.Fragment.FragmentHome;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.FragmentSearch;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,15 +38,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-//
-//        circleImageView = (CircleImageView) navigationView.getHeaderView(0).findViewById(R.id.imageView);
-//        Glide.with(MainActivity.this)
-//                .load(profile)
-//                .into(circleImageView);
 
         if (savedInstanceState == null){
             setFragment(new FragmentHome(), "Home");
         }
+
+        SettingActivity settingActivity = new SettingActivity();
+
     }
 
     @Override
@@ -90,7 +88,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -132,4 +131,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
+
 }
