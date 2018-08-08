@@ -1,8 +1,10 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Preference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.jesslyntjiang.android.cataloguemovieuiux.R;
 
 public class AppPreference {
     SharedPreferences sharedPreferences;

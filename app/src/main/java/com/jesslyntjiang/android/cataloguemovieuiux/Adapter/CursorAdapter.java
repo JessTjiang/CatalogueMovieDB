@@ -1,4 +1,4 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jesslyntjiang.android.cataloguemovieuiux.R;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.DetailMovie;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.MovieList;
 import com.squareup.picasso.Picasso;

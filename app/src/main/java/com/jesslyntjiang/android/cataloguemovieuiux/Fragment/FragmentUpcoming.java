@@ -1,4 +1,4 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Fragment;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.jesslyntjiang.android.cataloguemovieuiux.BuildConfig;
+import com.jesslyntjiang.android.cataloguemovieuiux.Adapter.MovieAdapter2;
+import com.jesslyntjiang.android.cataloguemovieuiux.R;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.MovieList;
 
 import org.json.JSONArray;
@@ -25,25 +28,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class FragmentNowPlaying extends Fragment {
+public class FragmentUpcoming extends Fragment {
 
     private RecyclerView rvCategory;
     private MovieAdapter2 adapter;
     private View view;
     private ArrayList<MovieList> movieLists = new ArrayList<>();
 
-    private static final String API_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key="+BuildConfig.MY_MOVIE_DB_API_KEY+"&language=en-US";
+    private static final String API_URL ="https://api.themoviedb.org/3/movie/upcoming?api_key="+ BuildConfig.MY_MOVIE_DB_API_KEY+"&language=en-US";
 
-    public FragmentNowPlaying() {
+
+    public FragmentUpcoming() {
         // Required empty public constructor
     }
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_fragment_now_playing, container, false);
+        view = inflater.inflate(R.layout.fragment_fragment_now_playing, container,false);
 
         rvCategory = view.findViewById(R.id.rv_category);
         rvCategory.setHasFixedSize(true);
@@ -72,11 +77,12 @@ public class FragmentNowPlaying extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
 
                     JSONArray array = jsonObject.getJSONArray("results");
+
                     for (int i = 0; i < array.length(); i++){
 
-                        MovieList movies = new MovieList();
-
                         JSONObject data = array.getJSONObject(i);
+
+                        MovieList movies = new MovieList();
                         movies.setJudulFilm(data.getString("title"));
                         movies.setDeskripsiFilm(data.getString("overview"));
                         movies.setTanggalFilm(data.getString("release_date"));
@@ -86,8 +92,8 @@ public class FragmentNowPlaying extends Fragment {
                         movieLists.add(movies);
 
                     }
-                    adapter = new MovieAdapter2(movieLists, getActivity());
 
+                    adapter = new MovieAdapter2(movieLists, getActivity());
                     adapter.setMovieLists(movieLists);
                     rvCategory.setAdapter(adapter);
 
@@ -101,7 +107,6 @@ public class FragmentNowPlaying extends Fragment {
             public void onErrorResponse(VolleyError error) {
 
                 Toast.makeText(getActivity(), "Error" + error.toString(), Toast.LENGTH_SHORT).show();
-                loadUrlData();
 
             }
         });
@@ -109,5 +114,6 @@ public class FragmentNowPlaying extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
     }
+
 
 }

@@ -39,5 +39,13 @@
     <string name="changeLanguage">Ganti Bahasa</string>
     <string name="delete">Hapus</string>
     <string name="add_to_fav">Tambahkan ke Favorit</string>
+    <string name="appwidget_text">Favorite Movie</string>
+    <string name="add_widget">Tambahkan Widget</string>
+    <string name="empty_text">Teks Kosong</string>
+    <string name="missingyou">Dicoding Catalogue Movie Merindukan Kamu, Click Disini</string>
+    <string name="switchon">Nyalakan pemberitahuan harian</string>
+    <string name="switchdaily">Nyalakan pemberitahuan harian</string>
+    <string name="switchrelease">Nyalakan pemberitahuan release film</string>
+    <string name="todayrelease">Hari ini %s dirilis lho!</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.jesslyntjiang.android.cataloguemovieuiux;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,8 @@ import android.view.MenuItem;
 
 import com.jesslyntjiang.android.cataloguemovieuiux.Fragment.FragmentHome;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.FragmentSearch;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity
@@ -42,9 +46,6 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null){
             setFragment(new FragmentHome(), "Home");
         }
-
-        SettingActivity settingActivity = new SettingActivity();
-
     }
 
     @Override
@@ -131,6 +132,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
-
 
 }

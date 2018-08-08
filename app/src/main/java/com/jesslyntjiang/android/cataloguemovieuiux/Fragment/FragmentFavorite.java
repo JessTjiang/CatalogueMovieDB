@@ -1,4 +1,4 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Fragment;
 
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -11,6 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.jesslyntjiang.android.cataloguemovieuiux.Adapter.CursorAdapter;
+import com.jesslyntjiang.android.cataloguemovieuiux.R;
 
 import static com.jesslyntjiang.android.cataloguemovieuiux.Database.DatabaseContract.CONTENT_URI;
 

@@ -10,10 +10,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DATABASE_NAME = "favoritemovie";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String CREATE_TABLE_FAV = String.format("CREATE_TABLE %s"
-                    +" (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    " %s TEXT NOT NULL," + " %s TEXT NOT NULL" +
-                    " %s TEXT NOT NULL" + " %s TEXT NOT NULL" +  "%s TEXT NOT NULL)",
+    private static final String CREATE_TABLE_FAV = String.format("CREATE TABLE %s"
+                    + " (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL," +
+                    " %s TEXT NOT NULL)",
             DatabaseContract.FAVORITE_MOVIE,
             DatabaseContract.MovieColumns._ID,
             DatabaseContract.MovieColumns.TITLE,

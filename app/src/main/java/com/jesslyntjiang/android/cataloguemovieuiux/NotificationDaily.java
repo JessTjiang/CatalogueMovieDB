@@ -6,7 +6,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import java.util.Calendar;
@@ -23,27 +24,27 @@ public class NotificationDaily extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent gotoMainActivity = new Intent(context, MainActivity.class);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(context, notifId, gotoMainActivity, PendingIntent.FLAG_UPDATE_CURRENT);
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentTitle("Catalogue Movie")
                 .setContentText(context.getResources().getString(R.string.missingyou))
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                 .setVibrate(new long[]{500,500})
-                .setLights(Color.RED, 3000, 3000)
+                .setSound(alarmSound)
                 .setAutoCancel(true);
 
-        notificationManager.notify(notifId, notification.build());
+        notificationManager.notify(notifId, builder.build());
     }
 
     public void setDailyNotification(Context context){
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 8);
-        calendar.set(Calendar.MINUTE, 11);
+        calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM, Calendar.PM);
+        calendar.set(Calendar.AM_PM, Calendar.AM);
 
         Intent intent = new Intent(context, NotificationDaily.class);
 

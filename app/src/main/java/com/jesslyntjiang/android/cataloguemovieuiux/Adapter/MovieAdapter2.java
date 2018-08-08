@@ -1,4 +1,4 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.jesslyntjiang.android.cataloguemovieuiux.CustomOnItemClickListener;
+import com.jesslyntjiang.android.cataloguemovieuiux.Database.MovieHelper;
+import com.jesslyntjiang.android.cataloguemovieuiux.R;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.DetailMovie;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.MovieList;
 

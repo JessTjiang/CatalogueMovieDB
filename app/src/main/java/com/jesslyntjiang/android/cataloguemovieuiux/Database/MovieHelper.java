@@ -1,4 +1,4 @@
-package com.jesslyntjiang.android.cataloguemovieuiux;
+package com.jesslyntjiang.android.cataloguemovieuiux.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
-import com.jesslyntjiang.android.cataloguemovieuiux.Database.DatabaseHelper;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.MovieList;
 
 import java.util.ArrayList;
