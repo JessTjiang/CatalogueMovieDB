@@ -9,11 +9,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.transition.Slide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jesslyntjiang.android.cataloguemovieuiux.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class FragmentHome extends Fragment {
@@ -34,7 +38,7 @@ public class FragmentHome extends Fragment {
         view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 
         viewPager = view.findViewById(R.id.viewpager);
-        viewPager.setAdapter(new sliderAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new SliderAdapter(getChildFragmentManager()));
 
         tabLayout = view.findViewById(R.id.tab);
         tabLayout.post(new Runnable() {
@@ -55,6 +59,7 @@ public class FragmentHome extends Fragment {
 
             }
 
+
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
@@ -64,13 +69,14 @@ public class FragmentHome extends Fragment {
         return view;
     }
 
-    private class sliderAdapter extends FragmentPagerAdapter {
-        String nowPlaying = getResources().getString(R.string.now_playing);
-        String upcoming = getResources().getString(R.string.upcoming);
-        String favorite = getResources().getString(R.string.favorite);
-        final String tabs[] = {nowPlaying, upcoming, favorite};
 
-        public sliderAdapter(FragmentManager fm){
+
+    private class SliderAdapter extends FragmentPagerAdapter{
+        String nowPlaying = "Now Playing";
+        String upcoming = "Upcoming";
+        final String tabs[] = {nowPlaying, upcoming};
+
+        public SliderAdapter (FragmentManager fm){
             super(fm);
         }
 
@@ -81,11 +87,10 @@ public class FragmentHome extends Fragment {
                     return new FragmentNowPlaying();
                 case 1:
                     return new FragmentUpcoming();
-                case 2:
-                    return new FragmentFavorite();
             }
             return null;
         }
+
 
         @Override
         public int getCount() {

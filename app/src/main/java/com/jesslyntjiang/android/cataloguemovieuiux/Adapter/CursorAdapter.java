@@ -121,4 +121,6 @@ public class CursorAdapter extends RecyclerView.Adapter<CursorAdapter.CategoryVi
             imgGambar = itemView.findViewById(R.id.img_item_photo);
         }
     }
+
+    
 }

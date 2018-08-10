@@ -1,8 +1,5 @@
 package com.jesslyntjiang.android.cataloguemovieuiux;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -17,10 +14,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jesslyntjiang.android.cataloguemovieuiux.Fragment.FragmentFavorite;
 import com.jesslyntjiang.android.cataloguemovieuiux.Fragment.FragmentHome;
 import com.jesslyntjiang.android.cataloguemovieuiux.Search.FragmentSearch;
-
-import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity
@@ -116,6 +112,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_Language) {
             Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(intent);
+        } else if (id == R.id.nav_favorite) {
+            title = getResources().getString(R.string.favorite);
+            fragment = new FragmentFavorite();
+            setFragment(fragment,title);
         }
 
         setFragment(fragment,title);

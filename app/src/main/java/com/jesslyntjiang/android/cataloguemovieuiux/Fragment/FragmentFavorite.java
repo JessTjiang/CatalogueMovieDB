@@ -21,7 +21,10 @@ public class FragmentFavorite extends Fragment {
     private SwipeRefreshLayout swipeContainer;
     RecyclerView recyclerView_fav;
     private Cursor cursorr;
-    private CursorAdapter cursorAdapter;;
+    private CursorAdapter cursorAdapter;
+    private FragmentHome fragmentHome;
+    private View view;
+    private Bundle bundle;
 
 
     public FragmentFavorite(){}
@@ -42,6 +45,14 @@ public class FragmentFavorite extends Fragment {
         cursorAdapter.setMovieList(cursorr);
         recyclerView_fav.setAdapter(cursorAdapter);
 
+        new loadDataMovie().execute();
+
+        update(view);
+
+    }
+
+
+    public void update(View view){
         swipeContainer = view.findViewById(R.id.swipe_container);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -55,8 +66,9 @@ public class FragmentFavorite extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
     }
+
+
 
     class loadDataMovie extends AsyncTask<Void, Void, Cursor> {
         @Override
@@ -69,6 +81,7 @@ public class FragmentFavorite extends Fragment {
             return getActivity().getContentResolver().query(
                     CONTENT_URI, null, null, null, null);
         }
+
 
         @Override
         protected void onPostExecute(Cursor cursor) {

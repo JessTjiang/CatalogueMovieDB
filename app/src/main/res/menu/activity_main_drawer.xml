@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_search_black_24dp"
             android:title="Search" />
         <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/Favorite" />
+        <item
             android:id="@+id/nav_Language"
             android:icon="@drawable/ic_language_black_24dp"
             android:title="Language" />
